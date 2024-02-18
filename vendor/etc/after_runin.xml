@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testlist>
+    <testitem>
+        <id>1</id>
+        <testname>版本信息测试</testname>
+    </testitem>
+    <testitem>
+        <id>4</id>
+        <testname>震动测试</testname>
+    </testitem>
+    <testitem>
+        <id>7</id>
+        <testname>LED灯测试</testname>
+        <addtionalparams>back_flash_light_one:true,front_soft_flash_light_one:true</addtionalparams>
+    </testitem>
+    <testitem>
+        <id>8</id>
+        <testname>触摸屏测试</testname>
+    </testitem>
+    <testitem>
+        <id>190</id>
+        <testname>屏幕显示测试</testname>
+    </testitem>
+    <testitem>
+        <id>136</id>
+        <testname>卡托插拔测试</testname>
+    </testitem>
+    <testitem>
+        <id>13</id>
+        <testname>耳机测试</testname>
+        <addtionalparams>
+            support_headset_forward_reverse_plugin:1</addtionalparams>
+    </testitem>
+    <testitem>
+        <id>14</id>
+        <testname>WI-FI AP扫描测试</testname>
+    </testitem>
+    <testitem>
+        <id>16</id>
+        <testname>蓝牙设备扫描</testname>
+    </testitem>
+    <testitem>
+        <id>29</id>
+        <testname>距离感应器测试</testname>
+    </testitem>
+    <testitem>
+        <id>103</id>
+        <testname>OTG测试</testname>
+    </testitem>
+    <testitem>
+        <id>36</id>
+        <testname>Wide主相机测试</testname>
+        <addtionalparams>camera_id_wide:0,camera_test_type:0</addtionalparams>
+    </testitem>
+    <testitem>
+        <id>87</id>
+        <testname>Wide Ultra 相机测试</testname>
+        <addtionalparams>camera_id_ultra:21,camera_test_type:0</addtionalparams>
+    </testitem>
+    <testitem>
+        <id>89</id>
+        <testname>Macro 相机测试</testname>
+        <addtionalparams>camera_id_macro:22,camera_test_type:0</addtionalparams>
+    </testitem>
+    <testitem>
+        <id>37</id>
+        <testname>Front 相机测试</testname>
+        <addtionalparams>camera_id_front:1,camera_test_type:0</addtionalparams>
+    </testitem>
+    <testitem>
+        <id>92</id>
+        <testname>Front 辅助相机测试</testname>
+        <addtionalparams>camera_id_front:40,camera_test_type:0</addtionalparams>
+    </testitem>
+    <testitem>
+        <id>156</id>
+        <testname>Sar Sensor校准与数据采集测试</testname>
+        <addtionalparams>
+            need_execute_calibrate:1,has_second_sar_sensor:1,sar_sensor_test_timeout:60,
+            need_restrict_calibrate_times:0,from_nearing_to_stop_wait_time:1,
+            sar_sensor_far_data_ignore_items:5,sar_sensor_near_data_ignore_items:5,
+            first_sar_sensor_id:33171015,first_sar_sensor_antenna_channel_nums:1,first_sar_sensor_cali_conf_nums:4,
+            first_sar_sensor_cali_conf_one_threshold:7154~9140,first_sar_sensor_cali_conf_two_threshold:3252~4249,
+            first_sar_sensor_cali_conf_three_threshold:0~100000,first_sar_sensor_cali_conf_four_threshold:0~100000,
+            first_sar_sensor_cs0_threshold:4500~100000~-100~100,first_sar_sensor_cs3_threshold:2416~5156~-100000~100000,
+            first_sar_sensor_nearing_cs0_threshold:400~100000,first_sar_sensor_nearing_cs3_threshold:-100000~100000,
+            first_sar_sensor_collect_far_data_items:5,first_sar_sensor_collect_near_data_items:3,
+            first_sar_sensor_need_calc_cali_conf:0, first_sar_sensor_secondary_cali_conf_threshold_one:-10000~10000,
+            second_sar_sensor_id:33171016,second_sar_sensor_antenna_channel_nums:1,second_sar_sensor_cali_conf_nums:4,
+            second_sar_sensor_cali_conf_one_threshold:4087~5416,second_sar_sensor_cali_conf_two_threshold:3958~5263,
+            second_sar_sensor_cali_conf_three_threshold:0~100000,second_sar_sensor_cali_conf_four_threshold:0~100000,
+            second_sar_sensor_cs0_threshold:1500~100000~-100~100,second_sar_sensor_cs3_threshold:0~100000~-100~100,
+            second_sar_sensor_nearing_cs0_threshold:400~100000,second_sar_sensor_nearing_cs3_threshold:400~10000,
+            second_sar_sensor_collect_far_data_items:5,second_sar_sensor_collect_near_data_items:3,
+            second_sar_sensor_need_calc_cali_conf:0,
+            second_sar_sensor_secondary_cali_conf_threshold_one:-1000~1000,second_sar_sensor_secondary_cali_conf_threshold_two:-1000~1000
+        </addtionalparams>
+    </testitem>
+    <testitem>
+        <id>86</id>
+        <testname>屏下指纹录入测试</testname>
+    </testitem>
+    <testitem>
+        <id>135</id>
+        <testname>充电器检测</testname>
+        <addtionalparams>battery_soc:0-80,ibat:3000000-12800000,isns_1:700-5500,isns_2:700-5500</addtionalparams>
+    </testitem>
+</testlist>
+

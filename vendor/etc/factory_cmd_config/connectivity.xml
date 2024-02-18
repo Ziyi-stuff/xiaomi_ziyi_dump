@@ -1,0 +1,347 @@
+<?xml version="1.0" ?>
+<TestCases>
+    <Description>connectivity</Description>
+<!--WIFI-->
+    <Item>
+        <Description>Wifi Enable</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>svc wifi enable</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Wifi Disable</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>svc wifi disable</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Wifi Address</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>ifconfig wlan0</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Wifi Factory Mode</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>svc wifi disable</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="2">
+            <type>exec</type>
+            <addr>ifconfig wlan0 up</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="3">
+            <type>exec</type>
+            <addr>iwpriv wlan0 version</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+        <Step index="4">
+            <type>exec</type>
+            <addr>echo 5 > /sys/module/wlan/parameters/con_mode</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Wifi Scan</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>svc wifi disable</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+        <Step index="2">
+            <type>exec</type>
+            <addr>echo 0 > /sys/module/wlan/parameters/con_mode</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+        <Step index="3">
+            <type>exec</type>
+            <addr>ifconfig wlan0 up</addr>
+            <operation delay="1000">exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+        <Step index="4">
+            <type>exec</type>
+            <addr>iw wlan0 scan</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+<!--NFC-->
+    <Item>
+        <Description>NFC Enable</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>svc nfc enable</addr>
+            <operation delay="4000">exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+        <Step index="2">
+            <type>exec</type>
+            <addr>dumpsys nfc | grep "mState=on" | wc -l</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC Disable</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>svc nfc disable</addr>
+            <operation delay="5000">exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+        <Step index="2">
+            <type>exec</type>
+            <addr>dumpsys nfc | grep "mState=off" | wc -l</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC Enable Fast</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>svc nfc enable</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC Disable Fast</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>svc nfc disable</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC Status</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>dumpsys nfc | grep "mState=on" | wc -l</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC Service</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>ps -A | grep com.android.nfc</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC Cplc</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>dumpsys secure_element | grep "mCplc"</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC AC Counter</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>dumpsys secure_element | grep "mAcCounter"</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+<!--Before calling pnscr must disable NFC-->
+    <Item>
+        <Description>NFC Cplc Fast</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>pnscr -p ese_cplc</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC SN</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>pnscr -p ndi</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC SE LinkState</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>pnscr -p sst</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC Reset</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>pnscr -p chr</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC Simulation</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>pnscr -p ese_3 -s 3</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC Card Read</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>pnscr -p cui -s 2</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC SEI2C Read</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>dumpsys secure_element | grep "mSeI2cStatus"</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>NFC SEI2C Disable</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>pnscr-mi -p ese_sei2c_disable</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>CCC APPLET Add</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>am broadcast -a action.mi.ccc.add.applet -f 0x01000000</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>CCC APPLET Read</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>getprop persist.ccc.result</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+<!--BT-->
+    <Item>
+        <Description>BT Enable</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>svc bluetooth enable</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>BT Disable</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>svc bluetooth disable</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>BT Scan</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>btcit scan</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>BT Test mode</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>btconfig edutm</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>BT Test Enable</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>btconfig enable</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>BT Test Disable</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>btconfig disable</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+<!--btconfig edu-->
+</TestCases>

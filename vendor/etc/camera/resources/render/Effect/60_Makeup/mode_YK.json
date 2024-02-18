@@ -1,0 +1,17 @@
+{
+	"##":"盐酷妆",
+	"Type":"Effect",
+	"TrueSight":
+	[
+		{
+			"ConfigurePath":"Effects/5_ModeYK/effect_preview.json",
+			"Index":0,
+			"Mode":"Preview"
+		},
+		{
+			"ConfigurePath":"Effects/5_ModeYK/effect_capture.json",
+			"Index":1,
+			"Mode":"Capture"
+		}
+	]
+}

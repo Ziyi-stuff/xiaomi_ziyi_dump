@@ -1,0 +1,469 @@
+<?xml version="1.0" ?>
+<TestCases>
+    <Description>Audio</Description>
+    <Item>
+        <Description>Audio PA</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cat /d/asoc/components | egrep -v soc</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>SpeakerCal</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>spkcal -c</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="2">
+            <type>exec</type>
+            <addr>spkcal -m</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="3">
+            <type>file</type>
+            <addr>/mnt/vendor/persist/audio</addr>
+            <operation>read</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Speaker</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh spk</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Speaker Top</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh top-spk</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Speaker Bottom</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh bot-spk</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Speaker HP</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh spk_hp</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Speaker HP Top</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh top-spk_hp</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Speaker HP Bottom</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh bot-spk_hp</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Receiver</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh rcv</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Main Mic capture</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>capture.sh main-mic 48000 16 2 1.5</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Top Mic capture</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>capture.sh top-mic 48000 16 2 1.5</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Back Mic capture</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>capture.sh back-mic 48000 16 2 1.5</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Main Mic loopback</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>setup_mainmic2headphone.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Top Mic loopback</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>setup_topmic2headphone.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Back Mic loopback</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>setup_backmic2headphone.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Teardown all loopback</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>teardown_loopback.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Headset mic Rcv loopback</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>setup_headsetmic2headphone.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Disable Ultrasonic</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>settings put global HIC_enable 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultrasonic</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>playback.sh us</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultrasonic sample</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>capture.sh us 96000 16 2 1.5</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>3.5mm insert</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>getevent -s 4 /dev/input/event5</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>headset_detect</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>headset_detect.sh </addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>clear_headset_status</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>headset_detect.sh -c </addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Clear Parameter</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>setup_fct</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>MI_Ultrsound proimixty Far</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>us_cal.sh near2far</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>MI_Ultrsound proimixty Near</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>us_cal.sh far2near</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>MI_Ultrsound proimixty Check</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>us_cal.sh cal_wn</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+     <Item>
+        <Description>Elliptic_Ultrasound proimixty start</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>elliptic_uscal.sh</addr>
+            <addr>elliptic_uscal.sh start</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Elliptic_Ultrasound proimixty near2far</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>elliptic_uscal.sh near2far</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Elliptic_Ultrasound proimixty far2near</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>elliptic_uscal.sh far2near</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Elliptic_Ultrasound proimixty stop</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>elliptic_uscal.sh stop</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Rcv to Main Mic</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>setup_rcv2mainmic.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Rcv to Top Mic</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>setup_rcv2topmic.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Rcv to Back Mic</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>setup_rcv2backmic.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Audio Switch</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cat /d/regmap/1-0042/registers | egrep 00:</addr>
+            <operation>exec</operation>
+            <value type="show">00: 09</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>vibrator_driver_check</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cat /sys/bus/i2c/drivers/awinic_haptic/*/name</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Enable 996log</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>debug.offline_log.enable</addr>
+            <operation>write</operation>
+            <value>true</value>
+        </Step>
+        <Step index="2">
+            <type>prop</type>
+            <addr>debug.offline_log.module</addr>
+            <operation>write</operation>
+            <value>audio</value>
+        </Step>
+        <Step index="3">
+            <type>prop</type>
+            <addr>ctl.start</addr>
+            <operation>write</operation>
+            <value>diag_mdlog_start</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Disable 996log</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>ctl.start</addr>
+            <operation>write</operation>
+            <value>diag_mdlog_stop</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Vibrator f0</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>vib_cal -f</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Vibrator impendance</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>vib_cal -z</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Vibrator</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cmd vibrator_manager synced oneshot 3000</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Headset capture left</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>typec_capture_headset.sh left</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Headset capture right</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>typec_capture_headset.sh right</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Headset playback</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>typec_playback_headset.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+</TestCases>

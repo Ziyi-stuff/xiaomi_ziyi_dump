@@ -1,0 +1,545 @@
+<?xml version="1.0" ?>
+<TestCases>
+    <Description>Sensor</Description>
+    <Item>
+        <Description>ACC Selftest</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a selftest Acc</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>GYR Selftest</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a selftest Gyr</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>AccCal</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a calibrate -f Acc</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Cct_Dark_Cal</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>am start -n com.fortsense.udlsfactory/com.fortsense.udlsfactory.DarkActivity</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>AccCfg</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a getconfig Acc</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>GyrCal</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a calibrate -f Gyr</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>GyrCfg</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a getconfig Gyr</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Gyr Test</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors --action=measure --delay=50 --sample=1 16 | grep "sensor=16"</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Gyr Data Test</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors --action=measure --delay=50 --sample=20 16 | grep "sensor=16"</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>AccTest</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors --action=measure --delay=10 --sample=1 Acc</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>PsensorCal</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a calibrate Prx</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>PsensorCfg</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a getconfig Prx</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>PsensorCal-near</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a calibrate -m near Prx</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>PsensorTest</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -s 1 Prx</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>PsensorTest2</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -d 100 -s 20 33171005</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>LsensorCal Orig</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -d 100 -s 7 33171007</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Lsensor Test</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors --action=measure --delay=50 --sample=7 33171007</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>LsensorTest</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>am start -n com.xiaomi.factory.mmi/.test.hardware.screen.MmiAdbBroadcastDisplayCheckActivity</addr>
+            <operation delay="800">exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="2">
+            <type>exec</type>
+            <addr>settings put system screen_off_timeout 2147483647</addr>
+            <operation delay="100">exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="3">
+            <type>exec</type>
+            <addr>echo 0 0 > /sys/class/mi_display/disp-DSI-0/disp_param</addr>
+            <operation delay="50">exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="4">
+            <type>exec</type>
+            <addr>am broadcast -a gray</addr>
+            <operation delay="100">exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="5">
+            <type>exec</type>
+            <addr>service call SurfaceFlinger 1035 i32 0</addr>
+            <operation delay="100">exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="6">
+            <type>file</type>
+            <addr>/sys/class/backlight/panel0-backlight/brightness</addr>
+            <operation delay="250">write</operation>
+            <value>100</value>
+        </Step>
+        <Step index="7">
+            <type>exec</type>
+            <addr>test-nusensors -d 200 -s 7 33171007</addr>
+            <operation  delay="100">exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="8">
+            <type>file</type>
+            <addr>/sys/class/backlight/panel0-backlight/brightness</addr>
+            <operation delay="250">write</operation>
+            <value>290</value>
+        </Step>
+        <Step index="9">
+            <type>exec</type>
+            <addr>test-nusensors -d 200 -s 7 33171007</addr>
+            <operation  delay="100">exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="10">
+            <type>file</type>
+            <addr>/sys/class/backlight/panel0-backlight/brightness</addr>
+            <operation delay="300">write</operation>
+            <value>2047</value>
+        </Step>
+        <Step index="11">
+            <type>exec</type>
+            <addr>test-nusensors -d 200 -s 7 33171007</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="12">
+            <type>exec</type>
+            <addr>am broadcast -a close</addr>
+            <operation delay="100">exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>LsensorCal Dark all</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>settings put system screen_off_timeout 2147483647</addr>
+            <operation delay="100">exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="2">
+            <type>exec</type>
+            <addr>echo 0 0 > /sys/class/mi_display/disp-DSI-0/disp_param</addr>
+            <operation delay="50">exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="3">
+            <type>exec</type>
+            <addr>service call SurfaceFlinger 1035 i32 0</addr>
+            <operation delay="100">exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="4">
+            <type>exec</type>
+            <addr>am start -n com.xiaomi.factory.mmi/.test.hardware.screen.MmiAdbBroadcastDisplayCheckActivity</addr>
+            <operation delay="800">exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="5">
+            <type>exec</type>
+            <addr>am broadcast -a white</addr>
+            <operation delay="100">exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="6">
+            <type>exec</type>
+            <addr>test-nusensors -a calibrate -m channelcal 33171111</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="7">
+            <type>exec</type>
+            <addr>am broadcast -a close</addr>
+            <operation delay="100">exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>GoldenChannel_Front</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a calibrate -m goldenchannel 33171111</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>ChannelCal_Front</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a calibrate 33171111</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>ChannelCalCoef_Front</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a getconfig -s 5 33171111</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Compass</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors --action=measure --delay=500 --sample=1 Mag</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>MagCal Selftest</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a selftest MagCal</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Vibrator</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a vibrate -d 1000</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Consumer IR</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>xiaomi_ir_test 200</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>TOF Offset Cal</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a calibrate -m offset Tof</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>TOF Xtalk Cal</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a calibrate -m xtalk Tof</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>TOF Test</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -d 100 -s 12 Tof</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>TOF Getcfg</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a getconfig Tof</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>SAR</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -d 200 33171016 -s 1</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+     <Item>
+        <Description>SAR2</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -d 200 33171015 -s 1</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>SAR1Cfg</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a getconfig -s 3 33171016</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>SAR2Cfg</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a getconfig -s 3 33171015</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>BarOrig</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors --action=measure --delay=50 --sample=2 Bar</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>BarCfg</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a getconfig Bar</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Hal Status</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a CoverHall -s 2</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>LsensorCal Light_Back</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a calibrate Lux_B</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+     <Item>
+        <Description>LsensorCfg_Back</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a getconfig Lux_B</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Lsensor Test Light_Back</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors --action=measure --delay=50 --sample=7 Lux_B</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>GoldenChannel_Back</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a calibrate -m goldenchannel 33171057</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>ChannelCal_Back</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a calibrate 33171057</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>ChannelCalCoef_Back</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors -a getconfig -s 5 33171057</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>CCT Back Test</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>test-nusensors --action=measure --delay=100 --sample=10 33171057</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+</TestCases>

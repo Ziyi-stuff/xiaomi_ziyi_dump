@@ -1,0 +1,18 @@
+{
+	"Type":"Category",
+	"TrueSight":
+	[
+		{
+			"ConfigurePath":"15_DLRetouch/mode_rear.json",
+			"Index":15
+		},
+		{
+			"ConfigurePath":"20_FaceRetouch/mode_rear.json",
+			"Index":20
+		},
+		{
+			"ConfigurePath":"50_SkinTone/mode_rear.json",
+			"Index":50
+		}
+	]
+}

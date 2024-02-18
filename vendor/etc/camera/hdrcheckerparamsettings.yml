@@ -1,0 +1,413 @@
+#if there is any change, please modify the commiter and modification time when submitting
+commiter: 'wangweikun'
+timestamp: '202207211537'
+product_name: "L9S"
+platform: 'qcom'
+
+cn:
+  default_end:
+    trigger_param:
+      rear:
+        trigger_method: 8 # four bit, 0b___  h->l: over-exp hdrbhist-svm real-drc preview-yuv
+        normal:
+          HDR-AUTO: # [uw, wide, 2x, tele]
+            overexp_start_bin: [254, 254, 254, 254]
+            overexp_ratio: [0.01, 0.01, 0.01, 0.01]
+            dd_bin: [10, 10, 10, 10]
+            dd_ratio: [0.05, 0.05, 0.05, 0.05]
+          HDR-ON: # just for india version
+            overexp_start_bin: [254, 254, 254, 254]
+            overexp_ratio: [0.01, 0.01, 0.01, 0.01]
+            dd_bin: [10, 10, 10, 10]
+            dd_ratio: [0.05, 0.05, 0.05, 0.05]
+        lowlight:
+          detect: 24 # 5 bit, 0b____, hist-darkratio, luxindex, exp time, sensitivity, ae luma
+          enable_auto: [0, 0, 0, 0]
+          enable_on: [0, 0, 0, 0]
+          luxindex: [360, 360, 360, 360]
+          dark_luxindex: [295, 295, 295, 295]
+          preview_dark_ratio: [0.2, 0.2, 0.2, 0.2]
+          preview_middle_ratio: [0.5, 0.5, 0.5, 0.5]
+          preview_dark_bin: [50, 50, 50, 50]
+          preview_middle_bin0: [80, 80, 80, 80]
+          preview_middle_bin1: [200, 200, 200, 200]
+        bokeh:
+          enable: 0
+          real_drc_gain: 5.5
+          luxindex: 325
+        hdsr:
+          enable: 1
+          zoom_max: 20.0
+          zoom_min: 1.0
+          face_restriction: 0
+          sr_ev0_num: 8
+          ev_short: -9
+          preview_overexp: 1
+          preview_overexp_th: 0.010
+        flash:
+          enable: 0
+      front:
+        trigger_method: 4 # four bit, 0b___  h->l: over-exp hdrbhist-svm real-drc preview-yuv
+        HDR-AUTO:
+          real_drc_gain: 6.0
+          luxindex: 360
+          threshold: 0.665
+          overexp_ratio: 0.01
+          overexp_start_bin: 251
+          enable_lowlight: 1
+        HDR-ON: # just for india version
+          real_drc_gain: 6.0
+          luxindex: 360
+          threshold: 0.73
+          overexp_ratio: 0.01
+          overexp_start_bin: 251
+          enable_lowlight: 1
+    ev_setting:
+      rear:
+        ev_method: 1 # 0 fixed, 1 dynamic
+        ev_formula: [3, 3, 3, 3]
+        # ev_comp_luxindex: [240, 240, 240, 240]
+        ev_positive: [9, 9, 9, 9]
+        ev_4_frame: [0, 0, 0, 0] # support 4 frame pipeline?
+        switch_ev_seq: [1, 1, 1, 1] # dynamic switch ev sequence
+        switch_ev_cond: [-24, -24, -24, -24] # dynamic switch ev sequence
+        ev_need_short_lux: [0, 0, 0, 0]
+        black_bin: [45, 45, 45, 45]
+        black_ratio: [0.045, 0.045, 0.045, 0.045]
+        ev_normal: [9, 0, -24]
+        ev_lowlight: [-15, 0, -30]
+        ev_lowlight_bright: [-18, 0, -36]
+        ev_lowlight_bright_enable: [1, 1, 1, 1]
+        ev_lowlight_bright_face: [0, 0, 0, 0]
+        ev_lowlight_bright_realdrc: [5.5, 64.0, 64.0, 64.0]
+        ev_bokeh: [0, -24]
+        ev_flash: [-24, -12, 0]
+        ev_order: [[1, 2, 0, 3], [1, 2, 0, 3], [1, 2, 0, 3], [1, 2, 0, 3]]
+        ev_limit_high_dynamic: [[-12, -30], [-12, -30], [-12, -30], [-12, -30]]
+        ev_limit_low_dynamic: [[-12, -24], [-12, -24], [-12, -24], [-12, -24]]
+        ev_dynamic_judge_thre_realadrc: [4.5, 0, 6.5, 6.5]
+        ev_dynamic_judge_thre_overexp: [0.05, 0.05, 0.05, 0.05]
+        ev_attenuation: [-24, -24, -24, -24]
+        attenuation_lux: [250, 250, 250, 250]
+        attenuation_real_drc: [3.75, 4.0, 4.0, 4.0]
+        attenuation_adrc: [2.75, 3.0, 3.0, 3.0]
+        revise: [1, 1, 1, 1] # [uw, wide, 2x, tele]
+        revise_interval: [[-18, -24, -30], [-18, -24, -30], [-18, -24, -30], [-18, -24, -30]]
+        ev_adj: [1, 1, 1, 1] # [uw, wide, 2x, tele] just for MTK
+        delta_ev: [0, 0, 0, 0] # just for mtk
+        delta_ev_method: [1, 0, 0, 0] # 0 use arcsoft method | 1 new method
+        lce_gain_max_ratio: [0, 1, 1, 1] # notice:lce_gain_max_ratio+lce_gain_middle_ratio=1
+        lce_gain_middle_ratio: [1, 0, 0, 0]
+        delta_normal: 0
+        delta_lowlight: 0
+        delta_bokeh: 0
+      front:
+        ev_method: 0 # 0 fixed, 1 dynamic
+        ev_formula: 0
+        ev_positive: 9
+        ev_limit: [-9, -30]
+        ev_front: [0, -30, -15]
+        ev_front_lt: [0, -30, -15]
+        ev_front_ll: [0, -18, -6]
+        light_lux: 325
+        ev_order: [0, 1, 2, 3]
+        delta_ev: 0
+    options:
+      support_hdsr: 0
+      support_flash: 0
+      support_bokeh: 0
+      support_ui_ae: 0
+      support_zsl: 0
+      break_frame: -1
+      enable_adrc_ev0: 0
+      exp_time_unit: 1000000
+      choose_model_rear: 1  # 0~3
+      choose_model_front: 0 # 0~3
+      state_luxindex: 15
+      state_hist_corr: 0.9
+      state_hdrbhist_diff: 0.2
+      limit_ae_converge: false
+      judge_ae_active: 1
+      judge_ae_converge: 1
+      judge_ae_luxindex: 5
+      judge_ae_frame: 5
+      skip_ae_lock: 1
+      skip_locked_frames: 3
+      reorder_ev: 1
+      preview_limit_ev: false
+      normal_ll_ev: true
+      hist_stats_step: 4
+      face_det_break_frames: 3
+      test_idx: 4
+
+india:
+  default_end:
+    trigger_param:
+      rear:
+        trigger_method: 8 # four bit, 0b___  h->l: over-exp hdrbhist-svm real-drc preview-yuv
+        normal:
+          HDR-AUTO: # [uw, wide, 2x, tele]
+            overexp_start_bin: [254, 254, 254, 254]
+            overexp_ratio: [0.01, 0.01, 0.01, 0.01]
+            dd_bin: [10, 10, 10, 10]
+            dd_ratio: [0.05, 0.05, 0.05, 0.05]
+          HDR-ON: # just for india version
+            overexp_start_bin: [254, 254, 254, 254]
+            overexp_ratio: [0.01, 0.01, 0.01, 0.01]
+            dd_bin: [10, 10, 10, 10]
+            dd_ratio: [0.05, 0.05, 0.05, 0.05]
+        lowlight:
+          detect: 24 # 5 bit, 0b____, hist-darkratio, luxindex, exp time, sensitivity, ae luma
+          enable_auto: [1, 1, 1, 1]
+          enable_on: [1, 1, 1, 1]
+          luxindex: [360, 360, 360, 360]
+          dark_luxindex: [295, 295, 295, 295]
+          preview_dark_ratio: [0.2, 0.2, 0.2, 0.2]
+          preview_middle_ratio: [0.5, 0.5, 0.5, 0.5]
+          preview_dark_bin: [50, 50, 50, 50]
+          preview_middle_bin0: [80, 80, 80, 80]
+          preview_middle_bin1: [200, 200, 200, 200]
+        bokeh:
+          enable: 0
+          real_drc_gain: 5.5
+          luxindex: 325
+        hdsr:
+          enable: 1
+          zoom_max: 20.0
+          zoom_min: 1.0
+          face_restriction: 0
+          sr_ev0_num: 8
+          ev_short: -9
+          preview_overexp: 1
+          preview_overexp_th: 0.010
+        flash:
+          enable: 0
+      front:
+        trigger_method: 4 # four bit, 0b___  h->l: over-exp hdrbhist-svm real-drc preview-yuv
+        HDR-AUTO:
+          real_drc_gain: 6.0
+          luxindex: 360
+          threshold: 0.665
+          overexp_ratio: 0.01
+          overexp_start_bin: 251
+          enable_lowlight: 1
+        HDR-ON: # just for india version
+          real_drc_gain: 6.0
+          luxindex: 360
+          threshold: 0.73
+          overexp_ratio: 0.01
+          overexp_start_bin: 251
+          enable_lowlight: 1
+    ev_setting:
+      rear:
+        ev_method: 1 # 0 fixed, 1 dynamic
+        ev_formula: [3, 3, 3, 3]
+        # ev_comp_luxindex: [240, 240, 240, 240]
+        ev_positive: [9, 9, 9, 9]
+        ev_4_frame: [0, 0, 0, 0] # support 4 frame pipeline?
+        switch_ev_seq: [1, 1, 1, 1] # dynamic switch ev sequence
+        switch_ev_cond: [-24, -24, -24, -24] # dynamic switch ev sequence
+        ev_need_short_lux: [0, 0, 0, 0]
+        black_bin: [45, 45, 45, 45]
+        black_ratio: [0.045, 0.045, 0.045, 0.045]
+        ev_normal: [9, 0, -24]
+        ev_lowlight: [-15, 0, -30]
+        ev_lowlight_bright: [-18, 0, -36]
+        ev_lowlight_bright_enable: [1, 1, 1, 1]
+        ev_lowlight_bright_face: [0, 0, 0, 0]
+        ev_lowlight_bright_realdrc: [5.5, 64.0, 64.0, 64.0]
+        ev_bokeh: [0, -24]
+        ev_flash: [-24, -12, 0]
+        ev_order: [[1, 2, 0, 3], [1, 2, 0, 3], [1, 2, 0, 3], [1, 2, 0, 3]]
+        ev_limit_high_dynamic: [[-12, -30], [-12, -30], [-12, -30], [-12, -30]]
+        ev_limit_low_dynamic: [[-12, -24], [-12, -24], [-12, -24], [-12, -24]]
+        ev_dynamic_judge_thre_realadrc: [4.5, 0, 6.5, 6.5]
+        ev_dynamic_judge_thre_overexp: [0.20, 0.20, 0.15, 0.15]
+        ev_attenuation: [-24, -24, -24, -24]
+        attenuation_lux: [250, 250, 250, 250]
+        attenuation_real_drc: [3.75, 4.0, 4.0, 4.0]
+        attenuation_adrc: [2.75, 3.0, 3.0, 3.0]
+        revise: [1, 1, 1, 1] # [uw, wide, 2x, tele]
+        revise_interval: [[-18, -24, -30], [-18, -24, -30], [-18, -24, -30], [-18, -24, -30]]
+        ev_adj: [1, 1, 1, 1] # [uw, wide, 2x, tele] just for MTK
+        delta_ev: [0, 0, 0, 0] # just for mtk
+        delta_ev_method: [1, 0, 0, 0] # 0 use arcsoft method | 1 new method
+        lce_gain_max_ratio: [0, 1, 1, 1] # notice:lce_gain_max_ratio+lce_gain_middle_ratio=1
+        lce_gain_middle_ratio: [1, 0, 0, 0]
+        delta_normal: 0
+        delta_lowlight: 0
+        delta_bokeh: 0
+      front:
+        ev_method: 0 # 0 fixed, 1 dynamic
+        ev_formula: 0
+        ev_positive: 9
+        ev_limit: [-9, -30]
+        ev_front: [0, -30, -15]
+        ev_front_lt: [0, -30, -15]
+        ev_front_ll: [0, -18, -6]
+        light_lux: 325
+        ev_order: [0, 1, 2, 3]
+        delta_ev: 0
+    options:
+      support_hdsr: 0
+      support_flash: 0
+      support_bokeh: 0
+      support_ui_ae: 0
+      support_zsl: 0
+      break_frame: -1
+      enable_adrc_ev0: 0
+      exp_time_unit: 1000000
+      choose_model_rear: 1  # 0~3
+      choose_model_front: 0 # 0~3
+      state_luxindex: 15
+      state_hist_corr: 0.9
+      state_hdrbhist_diff: 0.2
+      limit_ae_converge: false
+      judge_ae_active: 1
+      judge_ae_converge: 1
+      judge_ae_luxindex: 5
+      judge_ae_frame: 5
+      skip_ae_lock: 1
+      skip_locked_frames: 3
+      reorder_ev: 1
+      preview_limit_ev: false
+      normal_ll_ev: true
+      hist_stats_step: 4
+      face_det_break_frames: 3
+      test_idx: 4
+
+global:
+  default_end:
+    trigger_param:
+      rear:
+        trigger_method: 8 # four bit, 0b___  h->l: over-exp hdrbhist-svm real-drc preview-yuv
+        normal:
+          HDR-AUTO: # [uw, wide, 2x, tele]
+            overexp_start_bin: [254, 254, 254, 254]
+            overexp_ratio: [0.01, 0.01, 0.01, 0.01]
+            dd_bin: [10, 10, 10, 10]
+            dd_ratio: [0.05, 0.05, 0.05, 0.05]
+          HDR-ON: # just for india version
+            overexp_start_bin: [254, 254, 254, 254]
+            overexp_ratio: [0.01, 0.01, 0.01, 0.01]
+            dd_bin: [10, 10, 10, 10]
+            dd_ratio: [0.05, 0.05, 0.05, 0.05]
+        lowlight:
+          detect: 24 # 5 bit, 0b____, hist-darkratio, luxindex, exp time, sensitivity, ae luma
+          enable_auto: [0, 0, 0, 0]
+          enable_on: [0, 0, 0, 0]
+          luxindex: [360, 360, 360, 360]
+          dark_luxindex: [295, 295, 295, 295]
+          preview_dark_ratio: [0.2, 0.2, 0.2, 0.2]
+          preview_middle_ratio: [0.5, 0.5, 0.5, 0.5]
+          preview_dark_bin: [50, 50, 50, 50]
+          preview_middle_bin0: [80, 80, 80, 80]
+          preview_middle_bin1: [200, 200, 200, 200]
+        bokeh:
+          enable: 0
+          real_drc_gain: 5.5
+          luxindex: 325
+        hdsr:
+          enable: 1
+          zoom_max: 20.0
+          zoom_min: 1.0
+          face_restriction: 0
+          sr_ev0_num: 8
+          ev_short: -9
+          preview_overexp: 1
+          preview_overexp_th: 0.010
+        flash:
+          enable: 0
+      front:
+        trigger_method: 4 # four bit, 0b___  h->l: over-exp hdrbhist-svm real-drc preview-yuv
+        HDR-AUTO:
+          real_drc_gain: 6.0
+          luxindex: 360
+          threshold: 0.665
+          overexp_ratio: 0.01
+          overexp_start_bin: 251
+          enable_lowlight: 1
+        HDR-ON: # just for india version
+          real_drc_gain: 6.0
+          luxindex: 360
+          threshold: 0.73
+          overexp_ratio: 0.01
+          overexp_start_bin: 251
+          enable_lowlight: 1
+    ev_setting:
+      rear:
+        ev_method: 1 # 0 fixed, 1 dynamic
+        ev_formula: [3, 3, 3, 3]
+        # ev_comp_luxindex: [240, 240, 240, 240]
+        ev_positive: [9, 9, 9, 9]
+        ev_4_frame: [0, 0, 0, 0] # support 4 frame pipeline?
+        switch_ev_seq: [1, 1, 1, 1] # dynamic switch ev sequence
+        switch_ev_cond: [-24, -24, -24, -24] # dynamic switch ev sequence
+        ev_need_short_lux: [0, 0, 0, 0]
+        black_bin: [45, 45, 45, 45]
+        black_ratio: [0.045, 0.045, 0.045, 0.045]
+        ev_normal: [9, 0, -24]
+        ev_lowlight: [-15, 0, -30]
+        ev_lowlight_bright: [-18, 0, -36]
+        ev_lowlight_bright_enable: [1, 1, 1, 1]
+        ev_lowlight_bright_face: [0, 0, 0, 0]
+        ev_lowlight_bright_realdrc: [5.5, 64.0, 64.0, 64.0]
+        ev_bokeh: [0, -24]
+        ev_flash: [-24, -12, 0]
+        ev_order: [[1, 2, 0, 3], [1, 2, 0, 3], [1, 2, 0, 3], [1, 2, 0, 3]]
+        ev_limit_high_dynamic: [[-12, -30], [-12, -30], [-12, -30], [-12, -30]]
+        ev_limit_low_dynamic: [[-12, -24], [-12, -24], [-12, -24], [-12, -24]]
+        ev_dynamic_judge_thre_realadrc: [4.5, 0, 6.5, 6.5]
+        ev_dynamic_judge_thre_overexp: [0.20, 0.20, 0.15, 0.15]
+        ev_attenuation: [-24, -24, -24, -24]
+        attenuation_lux: [250, 250, 250, 250]
+        attenuation_real_drc: [3.75, 4.0, 4.0, 4.0]
+        attenuation_adrc: [2.75, 3.0, 3.0, 3.0]
+        revise: [1, 1, 1, 1] # [uw, wide, 2x, tele]
+        revise_interval: [[-18, -24, -30], [-18, -24, -30], [-18, -24, -30], [-18, -24, -30]]
+        ev_adj: [1, 1, 1, 1] # [uw, wide, 2x, tele] just for MTK
+        delta_ev: [0, 0, 0, 0] # just for mtk
+        delta_ev_method: [1, 0, 0, 0] # 0 use arcsoft method | 1 new method
+        lce_gain_max_ratio: [0, 1, 1, 1] # notice:lce_gain_max_ratio+lce_gain_middle_ratio=1
+        lce_gain_middle_ratio: [1, 0, 0, 0]
+        delta_normal: 0
+        delta_lowlight: 0
+        delta_bokeh: 0
+      front:
+        ev_method: 0 # 0 fixed, 1 dynamic
+        ev_formula: 0
+        ev_positive: 9
+        ev_limit: [-9, -30]
+        ev_front: [0, -30, -15]
+        ev_front_lt: [0, -30, -15]
+        ev_front_ll: [0, -18, -6]
+        light_lux: 325
+        ev_order: [0, 1, 2, 3]
+        delta_ev: 0
+    options:
+      support_hdsr: 0
+      support_flash: 0
+      support_bokeh: 0
+      support_ui_ae: 0
+      support_zsl: 0
+      break_frame: -1
+      enable_adrc_ev0: 0
+      exp_time_unit: 1000000
+      choose_model_rear: 1  # 0~3
+      choose_model_front: 0 # 0~3
+      state_luxindex: 15
+      state_hist_corr: 0.9
+      state_hdrbhist_diff: 0.2
+      limit_ae_converge: false
+      judge_ae_active: 1
+      judge_ae_converge: 1
+      judge_ae_luxindex: 5
+      judge_ae_frame: 5
+      skip_ae_lock: 1
+      skip_locked_frames: 3
+      reorder_ev: 1
+      preview_limit_ev: false
+      normal_ll_ev: true
+      hist_stats_step: 4
+      face_det_break_frames: 3
+      test_idx: 4

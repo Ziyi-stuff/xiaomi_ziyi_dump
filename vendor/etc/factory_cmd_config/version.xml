@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<TestCases>
+    <Description>Version</Description>
+    <Item>
+        <Description>CPU Version</Description>
+        <Step index="1">
+            <type>reg</type>
+            <addr>0x221c8744</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Software Version</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>ro.build.description</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Build Number</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>ro.build.version.incremental</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>HW version</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>ro.boot.hwversion</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+</TestCases>

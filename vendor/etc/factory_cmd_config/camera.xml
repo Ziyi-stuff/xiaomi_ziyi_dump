@@ -1,0 +1,405 @@
+<?xml version="1.0" ?>
+<TestCases>
+    <Description>Camera</Description>
+    <Item>
+        <Description>Flashled Up0</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/leds/led:switch_0/brightness</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+        <Step index="2">
+            <type>file</type>
+            <addr>/sys/class/leds/led:torch_0/brightness</addr>
+            <operation>write</operation>
+            <value>255</value>
+        </Step>
+       <Step index="3">
+            <type>file</type>
+            <addr>/sys/class/leds/led:switch_0/brightness</addr>
+            <operation>write</operation>
+            <value>1</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Flashled Up1</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/leds/led:switch_1/brightness</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+        <Step index="2">
+            <type>file</type>
+            <addr>/sys/class/leds/led:torch_1/brightness</addr>
+            <operation>write</operation>
+            <value>255</value>
+        </Step>
+       <Step index="3">
+            <type>file</type>
+            <addr>/sys/class/leds/led:switch_1/brightness</addr>
+            <operation>write</operation>
+            <value>1</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Front Flashled Up0</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/kernel/cam-i2c-flash/led_switch</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+        <Step index="2">
+            <type>file</type>
+            <addr>/sys/kernel/cam-i2c-flash/led_brightness</addr>
+            <operation>write</operation>
+            <value>12:12:12:12</value>
+        </Step>
+       <Step index="3">
+            <type>file</type>
+            <addr>/sys/kernel/cam-i2c-flash/led_switch</addr>
+            <operation>write</operation>
+            <value>15</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Front Flashled Up1</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/leds/led:switch_1/brightness</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+        <Step index="2">
+            <type>file</type>
+            <addr>/sys/class/leds/led:torch_1/brightness</addr>
+            <operation>write</operation>
+            <value>255</value>
+        </Step>
+       <Step index="3">
+            <type>file</type>
+            <addr>/sys/class/leds/led:switch_1/brightness</addr>
+            <operation>write</operation>
+            <value>1</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Warm Flashled Up</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/kernel/cam-i2c-flash/led_switch</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+        <Step index="2">
+            <type>file</type>
+            <addr>/sys/kernel/cam-i2c-flash/led_brightness</addr>
+            <operation>write</operation>
+            <value>12:12:12:12</value>
+        </Step>
+       <Step index="3">
+            <type>file</type>
+            <addr>/sys/kernel/cam-i2c-flash/led_switch</addr>
+            <operation>write</operation>
+            <value>5</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Cold Flashled Up</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/kernel/cam-i2c-flash/led_switch</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+        <Step index="2">
+            <type>file</type>
+            <addr>/sys/kernel/cam-i2c-flash/led_brightness</addr>
+            <operation>write</operation>
+            <value>12:12:12:12</value>
+        </Step>
+       <Step index="3">
+            <type>file</type>
+            <addr>/sys/kernel/cam-i2c-flash/led_switch</addr>
+            <operation>write</operation>
+            <value>10</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Flashled Down0</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/leds/led:switch_0/brightness</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+        <Step index="2">
+            <type>file</type>
+            <addr>/sys/class/leds/led:switch_0/trigger</addr>
+            <operation>write</operation>
+            <value>switch0_trigger</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Flashled Down1</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/leds/led:switch_1/brightness</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+        <Step index="2">
+            <type>file</type>
+            <addr>/sys/class/leds/led:switch_1/trigger</addr>
+            <operation>write</operation>
+            <value>switch1_trigger</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Front Flashled Down0</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/kernel/cam-i2c-flash/led_switch</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Front Flashled Down1</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/leds/led:switch_1/brightness</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+        <Step index="2">
+            <type>file</type>
+            <addr>/sys/class/leds/led:switch_1/trigger</addr>
+            <operation>write</operation>
+            <value>switch1_trigger</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Warm Flashled Down</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/kernel/cam-i2c-flash/led_switch</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Cold Flashled Down</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/kernel/cam-i2c-flash/led_switch</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Camera FuseID</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>getprop | grep fuseID</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Main AUX Persist</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>dc_cal -wt /sdcard/Rear_wt_cal.bin</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Main Ultra Persist</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>dc_cal -wu /sdcard/Rear_wu_cal.bin</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Front Main Capture Blemish</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 1 -f 0 -r 1</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Front Main Capture SFR</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 1 -f 2 -a 7 -x</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Wide Capture Blemish</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 0 -f 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Wide Capture SFR</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 0 -f 2 -a 2 -x</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Tele Capture Blemish</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 20 -f 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Tele Capture SFR</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 20 -f 2 -a 2 -x</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultra Capture Blemish</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 21 -f 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultra Capture SFR</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 21 -f 2 -a 5 -x</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultra Tele Capture Blemish</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 22 -f 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ultra Tele Capture SFR</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 22 -f 2 -a 2 -x</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Macro Capture Blemish</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 23 -f 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Macro Capture SFR</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 23 -f 2 -a 2 -x</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Dual Camera Rear Main</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 0 -f 1 -x</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Dual Camera Rear AUX</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 20 -f 1 -x</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Dual Camera Rear Ultra</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 21 -f 1 -x</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Dual Camera Rear Ultra Tele</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cameratest -n 23 -f 1 -x</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+
+</TestCases>

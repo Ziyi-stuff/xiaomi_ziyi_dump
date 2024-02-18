@@ -1,0 +1,103 @@
+<?xml version="1.0" ?>
+<TestCases>
+    <Description>fp</Description>
+    <Item>
+        <Description>Fp Vendor</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>persist.vendor.sys.fp.vendor</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Fp Module</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>persist.vendor.sys.fp.module</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>FOD Test Start</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>fp_start.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>FOD Flesh Down</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>fp_flesh_down.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>FOD Dark Down</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>fp_dark_down.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>FOD Chart Down</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>fp_chart_down.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>FOD Chart Up</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>fp_chart_up.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>FOD Test Close</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>fp_end.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Fp Check</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>persist.vendor.sys.fp.mulexposupport</addr>
+            <operation>read</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Fp Uid</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>persist.vendor.sys.fp.uid</addr>
+            <operation>read</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+</TestCases>

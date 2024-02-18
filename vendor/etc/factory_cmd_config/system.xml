@@ -1,0 +1,408 @@
+<?xml version="1.0" ?>
+<TestCases>
+    <Description>System</Description>
+   <Item>
+        <Description>FakeCPUID</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>ro.serialno</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>HW Level</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>ro.boot.hwlevel</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Product Name</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>ro.product.device</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Linux Version</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cat /proc/version</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>RealCPUID</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>ro.boot.cpuid</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Phone SN</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>ro.ril.oem.sno</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>UFS ID</Description>
+        <Step index="1">
+            <type>file</type>
+	    <addr>/sys/devices/virtual/mi_memory/mi_memory_device/ufshcd0/dump_string_desc_serial</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Memory Size</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cat /proc/mv | head -1 | cut -d ' ' -f 3</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>UFS Size</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cat /proc/mv | head -2 | tail -1 | cut -d ' ' -f 3</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>UFS Check</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>ghr</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Gsort</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>gsort</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Gsort Check</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>gsort --check</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>QMESA Check</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>qmesa_parser</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+        <Step index="2">
+            <type>file</type>
+            <addr>/data/local/tmp/qmesa_pare.log</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>GHR FE</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>fatal_error -s "[Blocker]ghr"</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+    <Item>
+        <Description>UIC FE</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>fatal_error -s "[Blocker]UIC"</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+    <Item>
+        <Description>GSORT FE</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>fatal_error -s "[Blocker]gsort"</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+    <Item>
+        <Description>QB FE</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>fatal_error -s "[Blocker]qb"</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>MP disable ramdump check</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>ro.boot.hwlevel</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+        <Step index="2">
+            <type>prop</type>
+            <addr>ro.boot.ramdump</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Sleep</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>factory-sleep</addr>
+            <operation>write</operation>
+            <value>1</value>
+        </Step>
+  </Item>
+
+    <Item>
+        <Description>Water cooling check</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>water_cooling_check.sh</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Boot State</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>sys.boot_completed</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>CPU0 Freq</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>CPU4 Freq</Description>
+        <Step index="2">
+            <type>file</type>
+            <addr>/sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_max_freq</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>CPU7 Freq</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_max_freq</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>max CPU Freq</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_max_freq</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Thermal</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>thermal_factory</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Close Cit</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>am force-stop com.miui.cit</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+        <Step index="2">
+            <type>exec</type>
+            <addr>pm clear com.miui.cit</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Selinux Disable</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>setenforce 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Enable offline log</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>persist.sys.offlinelog.kernel</addr>
+            <operation>write</operation>
+            <value type="show">true</value>
+        </Step>
+        <Step index="2">
+            <type>prop</type>
+            <addr>persist.sys.offlinelog.logcat</addr>
+            <operation>write</operation>
+            <value type="show">true</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Disable offline log</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>persist.sys.offlinelog.kernel</addr>
+            <operation>write</operation>
+            <value type="show">false</value>
+        </Step>
+        <Step index="2">
+            <type>prop</type>
+            <addr>persist.sys.offlinelog.logcat</addr>
+            <operation>write</operation>
+            <value type="show">false</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Input</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>getevent -l</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>SIM Card</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>gsm.sim.state</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>SIM Status</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cat /d/gpio | grep gpio112</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>RTC</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/bus/spmi/devices/spmi0-00/c440000.qcom,spmi:qcom,pm8150@0:vadc@3100/iio:device0/in_voltage_vcoin_input</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>996log</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>debug.offline_log.enable</addr>
+            <operation>write</operation>
+            <value>true</value>
+        </Step>
+        <Step index="2">
+            <type>prop</type>
+            <addr>debug.offline_log.module</addr>
+            <operation>write</operation>
+            <value>audio</value>
+        </Step>
+        <Step index="3">
+            <type>prop</type>
+            <addr>ctl.start</addr>
+            <operation>write</operation>
+            <value>diag_mdlog_start</value>
+        </Step>
+        <Step index="4">
+            <type>prop</type>
+            <addr>ctl.start</addr>
+            <operation>write</operation>
+            <value>diag_mdlog_stop</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Shutdown</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>factory-shutdown</addr>
+            <operation>write</operation>
+            <value>1</value>
+        </Step>
+    </Item>
+</TestCases>

@@ -1,0 +1,163 @@
+<?xml version="1.0" ?>
+<TestCases>
+    <Description>Security</Description>
+    <Item>
+        <Description>RPMB Status</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>rpmb-check</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>RPMB Provision</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>cardapp_client</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Widevine Provision</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>key_client --prepare widevine</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Widevine Check</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>key_client --version widevine</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Widevine Load</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>key_client --load widevine</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>IFAA Provision</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>key_client --prepare ifaa</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>IFAA Check</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>key_client --version ifaa</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>IFAA Load</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>key_client --load ifaa</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>FIDO Provision</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>key_client --prepare fido</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>FIDO Check</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>key_client --version fido</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>FIDO Load</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>key_client --load fido</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>EFUSE</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>getprop ro.boot.secureboot</addr>
+            <operation>exec</operation>
+            <value type="show">1</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>KeyBox Provision</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>key_client --prepare keybox</addr>
+            <operation>exec</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>KeyBox Check</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>keybox-check</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>KeyBox Load</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>key_client --load keybox</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Checkbackupnv</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>persist.radio.goldencopy_flag</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+</TestCases>

@@ -1,0 +1,212 @@
+<?xml version="1.0" ?>
+<TestCases>
+    <Description>Charge</Description>
+    <Item>
+        <Description>TypeC direction</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/qcom-battery/cc_orientation</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Charger status</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/power_supply/battery/status</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>USB Type</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/qcom-battery/real_type</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Charge Enable</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/qcom-battery/input_suspend</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Charge Disable</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/qcom-battery/input_suspend</addr>
+            <operation>write</operation>
+            <value>1</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>USB volt</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/power_supply/usb/voltage_now</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Charge State</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/qcom-battery/input_suspend</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>USB current</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/power_supply/usb/current_now</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Batter ID</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/qcom-battery/resistance_id</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Batter Current</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/power_supply/battery/current_now</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Batter Volt</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/power_supply/battery/voltage_now</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Batter Temp</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/power_supply/battery/temp</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Batter Capacity</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/power_supply/battery/capacity</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Master ln8000</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/qcom-battery/cp_present_master</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Slave ln8000</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/qcom-battery/cp_present_slave</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Battery Verify</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/qcom-battery/authentic</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+	<Item>
+        <Description>Verify Battery Chip</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/qcom-battery/chip_ok</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+    <Item>
+        <Description>Battery temp logic</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>/vendor/bin/batterytemp.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Master ln8000 Current</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/qcom-battery/cp_ibus_master</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Slave ln8000 Current</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/qcom-battery/cp_ibus_slave</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Ln8000 delta Current</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/qcom-battery/cp_ibus_delta</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+</TestCases>

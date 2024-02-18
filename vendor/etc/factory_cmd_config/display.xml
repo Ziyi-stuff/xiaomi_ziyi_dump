@@ -1,0 +1,269 @@
+<?xml version="1.0" ?>
+<TestCases>
+    <Description>Display</Description>
+    <Item>
+        <Description>Tpcolor</Description>
+        <Step index="1">
+            <type>prop</type>
+            <addr>vendor.panel.color</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Get Brightness</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/backlight/panel0-backlight/brightness</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Max Brightness</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/backlight/panel0-backlight/max_brightness</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Set Max Brightness</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/backlight/panel0-backlight/brightness</addr>
+            <operation>write</operation>
+            <value>2047</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Set 100 Brightness</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/backlight/panel0-backlight/brightness</addr>
+            <operation>write</operation>
+            <value>100</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Set Min Brightness</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/sys/class/backlight/panel0-backlight/brightness</addr>
+            <operation>write</operation>
+            <value>0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Backlight Always</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>settings put system screen_off_timeout 600000</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Primary screen inversion on</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>echo 00 00 39 01 00 00 00 00 01 21 > /sys/class/mi_display/disp-DSI-0/mipi_rw</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Primary screen inversion off</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>echo 00 00 39 01 00 00 00 00 01 20 > /sys/class/mi_display/disp-DSI-0/mipi_rw</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Primary Display Off</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>service call SurfaceFlinger 32000 i32 0 i32 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Primary Display On</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>service call SurfaceFlinger 32000 i32 0 i32 2</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Secondary Display Off</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>service call SurfaceFlinger 32000 i32 1 i32 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Secondary Display On</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>service call SurfaceFlinger 32000 i32 1 i32 2</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>CloseRotationFlag</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>settings put system accelerometer_rotation 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Backlight log On</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/d/dynamic_debug/control</addr>
+            <operation>write</operation>
+            <value>'func dsi_panel_set_backlight +tp'</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Backlight log Off</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/d/dynamic_debug/control</addr>
+            <operation>write</operation>
+            <value>'func dsi_panel_set_backlight -tp'</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Backlight Test High</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>am start -n com.miui.cit/.interactive.CitLedsCheckActivity</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="2">
+            <type>file</type>
+            <addr>/sys/class/backlight/panel0-backlight/brightness</addr>
+            <operation>write</operation>
+            <value>2047</value>
+        </Step>
+        <Step index="3">
+            <type>file</type>
+            <addr>/sys/class/backlight/panel0-backlight/brightness</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+        <Step index="4">
+            <type>exec</type>
+            <addr>settings put system screen_brightness_mode 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Backlight Test Low</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>am start -n com.miui.cit/.interactive.CitLedsCheckActivity</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+        <Step index="2">
+            <type>file</type>
+            <addr>/sys/class/backlight/panel0-backlight/brightness</addr>
+            <operation>write</operation>
+            <value>10</value>
+        </Step>
+        <Step index="3">
+            <type>file</type>
+            <addr>/sys/class/backlight/panel0-backlight/brightness</addr>
+            <operation>read</operation>
+            <value type="show">ERROR</value>
+        </Step>
+        <Step index="4">
+            <type>exec</type>
+            <addr>settings put system screen_brightness_mode 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Unlock</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>input keyevent 82</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>Disable Auto Brightness</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>settings put system screen_brightness_mode 0</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>TP Selftest</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>tp_selftest.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>TP Data Collect</Description>
+        <Step index="1">
+            <type>exec</type>
+            <addr>tp_data_collect.sh</addr>
+            <operation>exec</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+
+    <Item>
+        <Description>TP Lockdown Info</Description>
+        <Step index="1">
+            <type>file</type>
+            <addr>/proc/tp_lockdown_info</addr>
+            <operation>read</operation>
+            <value type="show">0</value>
+        </Step>
+    </Item>
+</TestCases>
