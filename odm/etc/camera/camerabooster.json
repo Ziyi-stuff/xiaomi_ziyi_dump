@@ -1,0 +1,32 @@
+{
+    "version": "1.0",
+    "product": "ziyi",
+    "threshold": {
+            "lowAdj_threshold": 0,
+            "lowerAdj_freeMem_threshold": 307200,
+            "cam_boost_threshold": 2621440,
+            "cam_boost_ext_mem": 1048576
+        },
+    "support": {
+        "inhibit_3rdprocs_enable": true,
+        "oom_update_support": true,
+        "perceptible_support": true
+        },
+    "configs": [
+        {
+            "name": "inhibit_app_list",
+            "config": [
+                "com.android.providers.media.module",
+                "com.google.android.inputmethod.latin",
+                "com.google.android.googlequicksearchbox:search",
+                "com.google.android.providers.media.module",
+                "com.sohu.inputmethod.sogou.xiaomi",
+                "com.ss.android.ugc.aweme",
+                "com.ss.android.ugc.aweme.lite"
+            ]
+        }
+    ],
+    "oom": {
+            "oom_level": "18432:0,23040:100,27648:200,64512:300,115712:800,216370:900"
+        }
+}
